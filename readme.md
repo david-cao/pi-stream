@@ -56,4 +56,4 @@ We have created an Amazon Machine Image (AMI) with everything already setup as w
 Using your own AMI
 -----------
 
-If you're feeling adventurous, take a look at the [AWS instance setup instructions](https://github.com/dcao96/pi-stream/blob/master/AWSsetup.md)
+If you're feeling adventurous, take a look at the [AWS instance setup instructions](https://github.com/dcao96/pi-stream/blob/master/AWSsetup.md).
