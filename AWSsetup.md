@@ -11,7 +11,7 @@ We have provided a public AMI with everything all setup, but if you are interest
     > 127.0.0.1 gfwsl.geforce.com
     
     > 127.0.0.1 services.gfe.nvidia.com
-4. Download version of the NVIDIA GeoForce Experience v2.5.14.5 (we have tested this version, but it's possible that newer versions will work too)
+4. Download version of the NVIDIA GeForce Experience v2.5.14.5 (we have tested this version, but it's possible that newer versions will work too)
 
 5. By default, GFE only works with GTX graphics cards and not the k520 included with the g2.2xlarge instance. Therefore we must replace the device id of a whitelisted graphics card with the device id of the k520 (118A). Follow steps 2-6 from this [XDA developers post](http://forum.xda-developers.com/showpost.php?p=63335126&postcount=163).
 
