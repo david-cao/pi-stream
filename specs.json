@@ -1,5 +1,5 @@
 {
   "SecurityGroupIds": ["sg-6e351208"],
-  "ImageId": "ami-b31f52d9",
+  "ImageId": "ami-22b7ff48",
   "InstanceType": "g2.2xlarge"
 }
