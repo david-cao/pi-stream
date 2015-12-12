@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install aws-cli
+pip install awscli
+
 # Add moonlight-embedded to apt source list
 echo "deb http://archive.itimmer.nl/raspbian/moonlight jessie main" >> /etc/apt/sources.list
 
@@ -12,8 +15,8 @@ echo "Installing moonlight-embedded... "
 apt-get install moonlight-embedded
 
 # Make some nifty aliases
-echo "alias moonlight-steam-720='moonlight steam -720 -30fps -mapping /etc/xbox.map -app'" >> ~/.bash_aliases
-echo "alias moonlight-steam-1080='moonlight steam -1080 -30fps -mapping /etc/xbox.map -app'" >> ~/.bash_aliases
+echo "alias moonlight-stream-720='moonlight stream -720 -30fps -mapping /usr/local/bin/xbox.map -app'" >> ~/.bash_aliases
+echo "alias moonlight-stream-1080='moonlight stream -1080 -30fps -mapping /usr/local/bin/xbox.map -app'" >> ~/.bash_aliases
 
 # Set up controllers
 modprobe -r xpad
