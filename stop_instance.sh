@@ -6,32 +6,20 @@ export AWS_ACCESS_KEY_ID=xxxxxxxx
 export AWS_SECRET_ACCESS_KEY=yyyyyyy
 export AWS_DEFAULT_REGION=us-west-1
 
-# Verify that the gaming stane actually exists (and that there's only one)
-echo -n "Finding your gaming instance... "
+# find an instance if the user has one up
+echo -n "Finding a g2.2xlarge instance..."
 INSTANCES=$( aws ec2 describe-instances --filters Name=instance-state-code,Values=16 Name=instance-type,Values=g2.2xlarge )
 if [ $( echo "$INSTANCES" | jq '.Reservations | length' ) -ne "1" ]; then
-	echo "didnt find exactly one instance!"
+	echo "You're already running a g2.2xlarge instance!"
 	exit
 fi
 INSTANCE_ID=$( echo "$INSTANCES" | jq --raw-output '.Reservations[0].Instances[0].InstanceId' )
 echo "$INSTANCE_ID"
 
-# Only allow one ec2-gaming AMI to exist
-echo -n "Checking if an AMI 'ec2-gaming' already exists... "
-AMIS=$( aws ec2 describe-images --owner self --filters Name=name,Values=ec2-gaming )
-if [ $( echo "$AMIS" | jq '.Images | length' ) -ne "0" ]; then
-	AMI_ID=$( echo "$AMIS" | jq --raw-output '.Images[0].ImageId' )
-	echo "yes, $AMI_ID"
-	echo "Deregistering that AMI..."
-	aws ec2 deregister-image --image-id $AMI_ID
-	echo "Deleting AMI's backing Snapshot..."
-	aws ec2 delete-snapshot --snapshot-id $( echo "$AMIS" | jq --raw-output '.Images[0].BlockDeviceMappings[0].Ebs.SnapshotId' )
-else
-	echo "no"
-fi
+export AMI_ID="ami-b31f52d9"
 
 # Create an AMI from the existing instance (so we can restore it next time)
-echo -n "Starting AMI creation... "
+echo -n "Booting up an instance..."
 AMI_ID=$( aws ec2 create-image --instance-id "$INSTANCE_ID" --name "ec2-gaming" | jq --raw-output '.ImageId' )
 echo "$AMI_ID"
 

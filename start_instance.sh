@@ -2,17 +2,16 @@
 
 set -e
 
-export AWS_ACCESS_KEY_ID=AKIAIIYMD3RGB5DRR4NA
-export AWS_SECRET_ACCESS_KEY=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
+export AWS_ACCESS_KEY_ID=xxxxxxxxxx
+export AWS_SECRET_ACCESS_KEY=xxxxxxxxxx
 export AWS_DEFAULT_REGION=us-east-1
 
 export EC2_SECURITY_GROUP_ID=sg-6e351208
 
 # Get the current lowest price for the GPU machine we want (we'll be bidding a cent above)
-# echo -n "Getting lowest g2.2xlarge bid... "
-# PRICE=$( aws ec2 describe-spot-price-history --instance-types g2.2xlarge --product-descriptions "Windows" --start-time `date +%s` | jq --raw-output '.SpotPriceHistory[].SpotPrice' | sort | head -1 )
-PRICE=0.10
-# echo $PRICE
+echo -n "Getting lowest g2.2xlarge bid..."
+PRICE=$( aws ec2 describe-spot-price-history --instance-types g2.2xlarge --product-descriptions "Windows" --start-time `date +%s` | jq --raw-output '.SpotPriceHistory[].SpotPrice' | sort | head -1 )
+echo $PRICE
 
 # echo -n "Looking for the ec2-gaming AMI... "
 # AMI_SEARCH=$( aws ec2 describe-images --filters Name=image-id,Values=ami-e2246388 )
@@ -20,8 +19,7 @@ PRICE=0.10
 # 	echo "not found. You must use gaming-down.sh after your machine is in a good state."
 # 	exit 1
 # fi
-AMI_ID=ami-e2246388
-echo $AMI_ID
+export AMI_ID=ami-b31f52d9
 
 echo -n "Creating spot instance request... "
 SPOT_INSTANCE_ID=$( aws ec2 request-spot-instances --spot-price $( bc <<< "$PRICE + 0.05" ) --launch-specification file://specs.json| jq --raw-output '.SpotInstanceRequests[0].SpotInstanceRequestId' )
