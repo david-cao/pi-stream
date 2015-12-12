@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Modified from http://lg.io/2015/07/05/revised-and-much-faster-run-your-own-highend-cloud-gaming-service-on-ec2.html
+
 set -e
 
 # Set your AWS credentials here
