@@ -31,6 +31,7 @@ You can now stream to your pi by simply running `moonlight stream -app AppName $
 
 To shut down your instance, you can just run the shut down script we've provided.
 `./stop_instance.sh`
+
 __PLEASE SHUT DOWN YOUR INSTANCES ONCE YOU ARE DONE, SINCE THEY COST AROUND 10 CENTS AN HOUR__
 
 Mapping a controller
