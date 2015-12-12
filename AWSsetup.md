@@ -30,6 +30,6 @@ We have provided a public AMI with everything all setup, but if you are interest
     
 9. Install applications you want to stream to the Pi. We installed [Steam](https://store.steampowered.com/) and [Blender](https://www.blender.org/).
 
-10. On your raspberry pi, run `moonlight pair <ip address of instance>`. Your pi should display a pin code that you should be prompted to enter on your instance.
+10. On your raspberry pi, run `moonlight pair <ip address of instance>`. Your pi will display a pin code that you should be prompted to enter on your instance.
 
 11. Test your pairing by running `moonlight list <ip address of instance>`.
