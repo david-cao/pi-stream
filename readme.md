@@ -39,6 +39,8 @@ Mapping a controller
 
 If you want to use a controller, you'll have to map one. Connect your controller to the pi, and run `sudo moonlight map /usr/local/bin/xbox.map`. Once you've mapped your controller, you can stream with this mapping, for example using `moonlight stream -720 -30fps -mapping /usr/local/bin/xbox.map -app Steam $IP`. The two aliases we created for you include this mapping already, so you could also simply run `moonlight-stream-720 Steam $IP`.
 
+If you want to use multiple controllers, you'll need to run multiple jobs for xboxdrv. Take a look at  [moonlight-embedded's controller guide](https://github.com/irtimmer/moonlight-embedded/wiki/Controllers-set-up) to get started with this.
+
 Additional Info
 ----------
 
