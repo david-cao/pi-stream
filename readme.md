@@ -15,7 +15,6 @@ Open up your terminal and cd to the directory you just cloned/downloaded. Run th
 
 If you want to have controllers supported on startup, after the setup script finishes you'll have to edit your `/etc/rc.local` file and add the line `xboxdrv --silent` somewhere before the `exit 0`.
 
-<<<<<<< HEAD
 Once you've done all that, restart your pi.
 
 Streaming to your pi
@@ -38,11 +37,9 @@ Mapping a controller
 
 If you want to use a controller, you'll have to map one. Connect your controller to the pi, and run `sudo moonlight map /usr/local/bin/xbox.map`. Once you've mapped your controller, you can stream with this mapping, for example using `moonlight stream -720 -30fps -mapping /usr/local/bin/xbox.map -app Steam $IP`. The two aliases we created for you include this mapping already, so you could also simply run `moonlight-stream-720 Steam $IP`.
 
-Using your AMI
+Using your own AMI
 -----------
 
-If you want to use your own AMI, check out what we wrote about it [here](https://github.com/dcao96/pi-stream/blob/master/AWSsetup.md).
-=======
 You will need an AWS instance to stream from. This project uses g2.2xlarge spot instances that include a K520 GRID GPU.
 We have created an Amazon Machine Image (AMI) with everything already setup as well as `start_instance.sh` to launch a spot instance. Below is information about the instance:
   > AMI id: ami-22b7ff48
@@ -56,5 +53,3 @@ We have created an Amazon Machine Image (AMI) with everything already setup as w
   > VNC Password: cis191test
 
 If you're feeling adventurous, take a look at the [AWS instance setup instructions](https://github.com/dcao96/pi-stream/blob/master/AWSsetup.md)
-
->>>>>>> 7e98704695ec7c9dd7a8dcaf336f33bdae852767
