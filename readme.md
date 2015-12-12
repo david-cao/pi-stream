@@ -22,6 +22,7 @@ Streaming to your pi
 
 Once you've setup your pi, we can start streaming to it. We first need to fire up an instance to stream from. This can be done by simply running our start script: 
 > Make sure your AWS credentials are filled in the scripts. If you already have your AWS credentials exported, don't worry about this.
+
 `. start_instance.sh`
 
 Then you're going to have to pair your pi to the instance you've just created. We've saved the IP for you, so simply run `moonlight pair $IP`. Next, remote desktop into your instance with VNC with the password `cis191test` (this will change in the future). Login to the instance using the password `AWSpi-streamCIS191project!`, and you should be prompted by Nvidia Gamestream for a pin. Enter the pin your pi displays and you should be good to go. Test the pairing by running `moonlight list $IP`, which should list Steam and Blender.
