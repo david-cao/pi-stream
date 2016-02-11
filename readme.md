@@ -3,7 +3,7 @@ pi-stream
 
 Streaming Applications to the Raspberry Pi using [Amazon Web Services](https://aws.amazon.com/), [NVIDIA GameStream]( http://shield.nvidia.com/game-stream) and [Moonlight Embedded](https://github.com/irtimmer/moonlight-embedded).
 
-A final project for [CIS 191](https://www.seas.upenn.edu/~cis191/index.html)
+A final project by Graham Mosley and David Cao for [CIS 191](https://www.seas.upenn.edu/~cis191/index.html)
 
 Getting started
 ---------------
